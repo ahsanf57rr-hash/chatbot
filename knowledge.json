@@ -1,0 +1,62 @@
+[
+  {
+    "keywords": ["admission", "apply", "application", "undergraduate", "graduate", "enroll", "enrollment", "registration"],
+    "answer": "Admissions open twice a year. Students can apply online by submitting required academic documents."
+  },
+  {
+    "keywords": ["documents", "required documents", "admission documents", "certificate", "marksheet"],
+    "answer": "Required documents include academic transcripts, CNIC or B-Form, photographs, and admission form."
+  },
+  {
+    "keywords": ["admission open", "admission dates", "when admissions", "intake"],
+    "answer": "Admissions usually open in Spring and Fall semesters."
+  },
+  {
+    "keywords": ["fee", "fees", "semester fee", "tuition", "charges"],
+    "answer": "Semester fees depend on the academic program. Please contact the accounts office for exact details."
+  },
+  {
+    "keywords": ["scholarship", "financial aid", "discount", "concession"],
+    "answer": "Scholarships are available based on merit and financial need."
+  },
+  {
+    "keywords": ["fee payment", "pay fees", "payment method", "installments"],
+    "answer": "Fees can be paid through bank challan or approved payment methods."
+  },
+  {
+    "keywords": ["hostel", "apply hostel", "hostel application", "accommodation"],
+    "answer": "Students can apply for hostel accommodation through the administration office."
+  },
+  {
+    "keywords": ["hostel facilities", "hostel room", "hostel services"],
+    "answer": "Hostel facilities include furnished rooms, electricity, water, and security."
+  },
+  {
+    "keywords": ["hostel rules", "hostel policy", "hostel discipline"],
+    "answer": "Students must follow hostel rules including discipline, timings, and cleanliness."
+  },
+  {
+    "keywords": ["grading policy", "grading system", "marks", "grades", "cgpa"],
+    "answer": "The university follows a GPA-based grading system."
+  },
+  {
+    "keywords": ["attendance", "attendance requirement", "minimum attendance", "absent"],
+    "answer": "Students must maintain at least 75% attendance to appear in exams."
+  },
+  {
+    "keywords": ["course registration", "register courses", "enroll subjects"],
+    "answer": "Course registration is done at the beginning of each semester through the student portal."
+  },
+  {
+    "keywords": ["library timing", "library hours", "library open"],
+    "answer": "The library is open during official working hours on weekdays."
+  },
+  {
+    "keywords": ["borrow books", "library books limit", "book issue"],
+    "answer": "Students can borrow a limited number of books for a specific duration."
+  },
+  {
+    "keywords": ["digital library", "online books", "e-resources"],
+    "answer": "Digital resources and online journals are available through the university library system."
+  }
+]
