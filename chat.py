@@ -4,17 +4,16 @@ import tempfile
 import os
 
 # =========================
-# SAFE TTS IMPORT (define TTS_AVAILABLE immediately)
+# SAFE TTS IMPORT
 # =========================
-TTS_AVAILABLE = False
 try:
     from gtts import gTTS
     TTS_AVAILABLE = True
-except Exception:
+except ImportError:
     TTS_AVAILABLE = False
 
 # =========================
-# SAFE TEXT-TO-SPEECH FUNCTION
+# TTS FUNCTION
 # =========================
 def text_to_speech(text):
     if not TTS_AVAILABLE:
@@ -25,30 +24,34 @@ def text_to_speech(text):
             tts.save(fp.name)
             return fp.name
     except Exception as e:
-        st.warning(f"TTS error: {e}")
+        st.warning(f"Text-to-Speech error: {e}")
         return None
 
 # =========================
 # PAGE CONFIG
 # =========================
-st.set_page_config(page_title="University Help Desk Bot",
-                   page_icon="🎓",
-                   layout="wide")
+st.set_page_config(
+    page_title="University Help Desk Bot",
+    page_icon="🎓",
+    layout="wide"
+)
 
 # =========================
 # LOAD KNOWLEDGE BASE SAFELY
 # =========================
-knowledge_file_path = "knowledge.json"
 knowledge = []
+knowledge_file_path = "knowledge.json"
 
 if not os.path.exists(knowledge_file_path):
-    st.error(f"knowledge.json not found at {knowledge_file_path}")
+    st.error(f"knowledge.json file not found at {knowledge_file_path}")
 else:
     try:
-        with open(knowledge_file_path, "r", encoding="utf-8") as f:
-            knowledge = json.load(f)
+        with open(knowledge_file_path, "r", encoding="utf-8") as file:
+            knowledge = json.load(file)
+    except json.JSONDecodeError as e:
+        st.error(f"Error decoding knowledge.json: {e}")
     except Exception as e:
-        st.error(f"Failed to load knowledge.json: {e}")
+        st.error(f"Unexpected error loading knowledge.json: {e}")
 
 # =========================
 # EXAMPLE QUESTIONS
@@ -86,7 +89,7 @@ example_questions = {
 # =========================
 def get_answer(question):
     if not knowledge:
-        return "❌ Knowledge base not loaded. Please check knowledge.json."
+        return "❌ Knowledge base is not loaded. Please check knowledge.json."
     question = question.lower()
     for item in knowledge:
         for keyword in item.get("keywords", []):
@@ -126,7 +129,11 @@ for category, questions in example_questions.items():
 # TEXT INPUT
 # =========================
 st.subheader("✍ Ask Your Question")
-query = st.text_input("Type here:", value=st.session_state.current_query)
+
+query = st.text_input(
+    "Type here:",
+    value=st.session_state.current_query
+)
 
 if st.button("Send") and query.strip():
     answer = get_answer(query)
